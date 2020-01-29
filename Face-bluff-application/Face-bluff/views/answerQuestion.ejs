@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("plantillaHead") %>
+    </head>
+    <body>
+        <!-- header -->
+        <%- include("plantillaBarraSuperior") %>   
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña"><%=pregunta%></div>
+
+        <div class="ContenedorInfomracion">
+            <ul>
+                <!--SI SELECCIONA UNA ESCRITA-->                
+                <%respuestas.forEach(function(respuesta){%>
+                    <%= respuesta %>
+                    <li>                            
+                        <form action="/preguntas/insertarRespuesta" method="POST">
+                            
+                        <input type="hidden" name="idPregunta" value="<%=idPregunta%>">
+                        <input type="hidden" name="respuesta" value="<%=respuesta%>">
+                        <input type="submit" value="contestar">
+                        </form>
+                    </li>                    
+                <% })%>
+                <!--SI ESCRIBE UNA NUEVA RESPUESTA--> 
+                <form action="/preguntas/insertarNuevaRespuesta" method="POST">
+                    Otra respuesta: <input type="text" name="respuesta">                            
+                    <input type="hidden" name="idPregunta" value="<%=idPregunta%>">
+                    <input type="submit" value="contestar">
+                </form>
+                
+                
+            </ul>           
+        </div>
+        
+        <div class="botonModificar"><a class="link2" href="/preguntas/crearPregunta.html">¡Añade tus preguntas!</button></div>
+        
+    </body>
+</html>

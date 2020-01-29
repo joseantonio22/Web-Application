@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <%- include("plantillaHead") %>
+    </head>
+    <body>
+        <!-- header -->
+        <%- include("plantillaBarraSuperior") %>
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">Pregunta nueva</div>
+
+        <div class="ContenedorInfomracion">
+            <form action="/preguntas/insertarPregunta" method="POST">
+                Pregunta
+                <input type="text" name="pregunta">
+                Respuestas
+                <textarea name="respuestas" id="text_observ">  </textarea>                    
+                <input type="submit" value="Añadir">
+            </form>
+        </div>
+        
+    </body>
+</html>

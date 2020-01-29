@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("plantillaHead") %>
+    </head>
+        <body>
+            <!-- header -->
+        <%- include("plantillaBarraSuperior") %>   
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">Buscar</div>
+        <div class="ContenedorInfomracion">
+            <form action="/usuarios/amigos/buscarUsuarios" method="POST">
+                <input type="text" name="nombreBuscar">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+
+        <div class="pestaña">Amigos</div>
+        
+        <div class="ContenedorInfomracion">
+            <!--<ul>
+                <% amigos.forEach(function(amigo) { %>
+                    <img src="/usuarios/imagenAmigo/<%=amigo.imagen%>" width="50" height="50">
+                    <%= amigo.nombreCompleto %>
+                    <li>
+                    <form action="/usuarios/amigos/perfilAmigos" method="POST">
+                        <input type="hidden" name="user" value="<%=amigo.email%>">
+                        <input type="submit" value="Ver perfil">
+                    </form>
+                    </li>
+                <% }); %> 
+            </ul>-->
+            <ul>
+                <% amigos.forEach(function(amigo) { %>
+                    <img src="/usuarios/imagenAmigo/<%=amigo.imagen%>" width="50" height="50">
+                    <li>
+                        <a class ="link" href="/usuarios/amigos/perfilAmigos/<%=amigo.email%>"><%= amigo.nombreCompleto %></a>
+                    </li>
+                <% }); %> 
+            </ul>
+
+           
+        </div>
+        
+        <div class="pestaña">Solicitudes</div>
+
+        <div class="ContenedorInfomracion">
+            <ul>
+            <% solicitudes.forEach(function(solicitud) { %>
+                <img src="/usuarios/imagenAmigo/<%=solicitud.imagen%>" width="50" height="50">
+                <a class="link" href="/usuarios/amigos/perfilAmigos/<%=solicitud.email%>"><%= solicitud.nombreCompleto %></a>
+                
+                <li>
+                <form action="/usuarios/amigos/RechazarSolicitud" method="POST">
+                    <input type="hidden" name="user" value="<%=solicitud.email%>">
+                    <input type="submit" value="Rechazar Solicitud">
+                </form>
+                <form action="/usuarios/amigos/AceptarSolicitud" method="POST">
+                    <input type="hidden" name="user" value="<%=solicitud.email%>">
+                    <input type="submit" value="Aceptar Solicitud">
+                </form>
+                <br>
+                </li>
+                <% }); %> 
+            </ul>
+           
+    
+        </div>
+        
+
+    </body>
+</html>

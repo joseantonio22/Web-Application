@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("plantillaHeadLogin") %>
+    </head>
+    <body>
+        <%- include("plantillaBarraSuperiorLogin") %> 
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">ENTRAR</div>
+        <form action="form_login.html" method="POST">
+            <div class="ContenedorInfomracion">
+              <div class = "contenedorInfoIzquierda">
+                <ul class="ul">
+                    <li> Email </li><br>
+                    <li> Contraseña </li><br>
+                    
+                </ul> 
+                <%=error%>
+              </div>
+              <div class = "contenedorInfoDerecha">
+                <ul class="ul">
+              
+                    <li><input type="text" name="email"></li><br>
+                    <li><input type="password" name="contraseña"></li><br>
+                </ul>
+              </div>
+            </div>
+            <div class="botonModificar">
+                <!--<button class="link2" type="submit" href="/profile.html">CONECTAR</button>-->
+                <button class="link2" type="submit">CONECTAR</button>
+            </div>
+        </form>
+    </body>
+</html>

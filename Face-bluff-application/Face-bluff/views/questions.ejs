@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <%- include("plantillaHead") %>
+            </head>
+            <body>
+                <!-- header -->
+                <%- include("plantillaBarraSuperior") %>
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">PREGUNTAS SELECCIONADAS ALEATORIAMENTE</div>
+
+        <div class="ContenedorInfomracion">
+            <ul>
+                <% preguntas.forEach(function(pregunta) { %>
+                    <%pregunta.forEach(function(preg){%>
+                        <%= preg.p %>
+                        <li>                            
+                            <form action="/preguntas/seleccionarPregunta" method="POST">
+                            <input type="hidden" name="pregunta" value="<%=preg.p%>">
+                            <input type="hidden" name="idPregunta" value="<%=preg.i%>">
+                            <input type="submit" value="contestar">
+                            </form>
+                        </li>                    
+                    <% })%>                    
+                <% }); %> 
+            </ul>           
+        </div>
+        
+        <div class="botonModificar"><a class="link2" href="/preguntas/crearPregunta.html">¡Añade tus preguntas!</button></div>
+        
+    </body>
+</html>

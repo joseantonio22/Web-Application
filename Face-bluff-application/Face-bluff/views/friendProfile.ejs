@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("plantillaHead") %>
+    </head>
+    <body>
+        <!-- header -->
+        <%- include("plantillaBarraSuperior") %>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">PERFIL DE <%= user %></div>
+
+        <div class="ContenedorInfomracion">
+
+            <img src="/usuarios/imagenAmigo/<%=imagenAmigo%>" width="200" height="200"><br>
+           
+            <div class="info">
+                <ul>                    
+                    <li>Nombre: <%=user %></li><br>
+                    <li>Fecha: <%=edad %> </li><br>
+                    <li>Sexo: <%=sexo %></li><br>
+                    <li>Puntos: <%=puntosAmigo%></li><br>
+                </ul>
+            </div>    
+        </div>
+        <br><br>
+        <div class="ContenedorInfomracion">
+            <ul>
+                <% fotos.forEach(function(f) { %>                                    
+                    <li>                            
+                        <img src="/usuarios/imagenAmigo/<%=f.imagen%>" width="500" height="400"> 
+                        <br>
+                        <%=f.descripcion%>
+                    </li>              
+                <% }); %>                
+            </ul>          
+        </div>
+
+       
+
+    </body>
+</html>

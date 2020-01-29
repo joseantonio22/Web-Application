@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <%- include("plantillaHead") %>
+            </head>
+            <body>
+                <!-- header -->
+                <%- include("plantillaBarraSuperior") %>
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña"><%=pregunta%></div>
+        <br><br>
+        
+        <%if (fila.length <= 0) { %>
+            <div class="ContenedorInfomracion">
+                No has contestado a esta pregunta
+                <form action="/preguntas/contestarPregunta" method="POST">
+                    <input type="hidden" name="idPregunta" value="<%=idPregunta%>">
+                    <input type="submit" value="Contestar Pregunta">
+                </form>
+            </div>
+            <br><br>
+        <% } %>
+
+        <div class="ContenedorInfomracion">
+            Resultados de tus respuestas adivinadas<br>
+            <%adivinadas.forEach(function(adv){%>
+                <tr>
+                    <!--<img src="/usuarios/imagen" width="50" height="50">  -->
+                    <img src="/usuarios/imagenAmigo/<%=adv.imagen%>" width="50" height="50">                          
+                    <%=adv.nombreCompleto%> <%if(adv.adivinado){%> HAS ACERTADO <%}%> <%if(!adv.adivinado){%> HAS FALLADO <%}%> <br>
+                </tr>                    
+            <% })%> 
+        </div>
+        <br><br>
+        <div class="ContenedorInfomracion">
+            Atrévete a adivinar las respuestas de tus amigos<br>
+            <%porAdivinar.forEach(function(padv){%>
+                <tr>
+                    <form action="/preguntas/adivinarPregunta" method="POST">
+                        <!--<img src="/usuarios/imagen" width="50" height="50">  -->
+                        <img src="/usuarios/imagenAmigo/<%=padv.imagen%>" width="50" height="50">                          
+                        <%=padv.nombreCompleto%>
+                        <input type="hidden" name="emailAmigo" value="<%=padv.email%>">
+                        <input type="hidden" name="respuestaAmigo" value="<%=padv.respuesta%>">
+                        <input type="hidden" name="idPregunta" value="<%=idPregunta%>">
+                        <input type="submit" value="Contestar Pregunta">
+                    </form>
+                </tr>                    
+            <% })%>
+            
+        </div>        
+        
+        
+        
+    </body>
+</html>

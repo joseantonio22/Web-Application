@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <%- include("plantillaHead") %>
+            </head>
+            <body>
+                <!-- header -->
+                <%- include("plantillaBarraSuperior") %>
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        
+
+        <div class="pestaña">Resultados de busqueda</div>
+        
+        <div class="ContenedorInfomracion">
+            <%=busquedaVacia%>
+            <ul>
+                <% busqueda.forEach(function(bus) { %>
+                <%= bus.nombreCompleto %>
+                <li>
+                <form action="/usuarios/amigos/enviarSolicitud" method="POST">
+                    <input type="hidden" name="user" value="<%=bus.email%>">
+                    <input type="submit" value="enviarSolicitud">
+                </form>
+                </li>
+                <% }); %> 
+            </ul>
+           
+        </div>
+        
+        
+
+    </body>
+</html>

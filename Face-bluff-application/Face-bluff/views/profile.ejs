@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("plantillaHead") %>
+    </head>
+    <body>
+        <!-- header -->
+        <%- include("plantillaBarraSuperior") %>
+        
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">TU PERFIL</div>
+
+        <div class="ContenedorInfomracion">
+            
+            <div class="imagen"><img src="/usuarios/imagenUsuario" width="200" height="200"></div>
+
+            <div class="info">
+                <ul>
+                    <li>Nombre: <%= user %></li><br>
+                    <li>Fecha: <%= edad %> </li><br>
+                    <li>Sexo: <%= sexo %></li><br>
+                    <li>Puntos: <%=puntos%></li><br>
+                    <li>
+                        <form action="form_subirFoto" method="POST">                            
+                            <li>Subida de fotos<br><input type="text" name="descripcion" required> Descripccion foto</li><br>
+                            <li><input type="file" name="imagen" id="imagen" required></li>                            
+                            <input type="submit" value="SubirFoto">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+
+        <div class="botonModificar"><a class="link2" href="/usuarios/modProfile.html">MODIFICAR PERFIL</button></a></div>
+
+        <div class="ContenedorInfomracion">
+            <ul>
+                <% fotos.forEach(function(f) { %>                                    
+                    <li>                            
+                        <img src="/usuarios/imagenAmigo/<%=f.imagen%>" width="500" height="400"> 
+                        <br>
+                        <%=f.descripcion%>
+                    </li>              
+                <% }); %>                
+            </ul>          
+        </div>
+
+
+
+    </body>
+</html>

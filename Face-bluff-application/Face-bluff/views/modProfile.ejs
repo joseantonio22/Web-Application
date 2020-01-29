@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <%- include("plantillaHead") %>
+            </head>
+            <body>
+                <!-- header -->
+                <%- include("plantillaBarraSuperior") %>
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br>
+        <div class="pestaña">Modificar Perfil</div>
+
+        <div class="ContenedorInfomracion">
+            <div class = "contenedorInfoIzquierda">
+                <ul class="ul">
+                    
+                    <li> Contraseña </li><br>
+                    <li> Nombre completo </li><br>
+                    <li> Sexo </li><br>
+                    <li> Fecha nacimiento </li><br>
+                    <li> Imagen de perfil </li><br>
+                </ul> 
+            </div>
+            <div class = "contenedorInfoDerecha">
+                <form action="form_modProfile.html" method="POST">
+                <ul class="ul">
+                    
+                    <li><input type="password" name="contraseña" ></li><br>
+                    <li><input type="text" name="nombreCompleto" ></li><br>
+                    <li><input type="radio" name="sexo" value="H" > Hombre
+                        <input type="radio" name="sexo" value="M"> Mujer
+                        <input type="radio" name="sexo" value="O"> Otro
+                    </li><br>
+                    <li><input type="date" name="fechaNacimiento"></li><br>
+                    <li><input type="file" name="imagen" id="imagen"></li>
+                </ul>
+               
+            </div>
+        </div>
+        
+        <div class="botonModificar"> <button class="link2" type="submit" href="/profile.html">Modificar</button></div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <%- include("plantillaHead") %>
+            </head>
+            <body>
+                <!-- header -->
+                <%- include("plantillaBarraSuperior") %>  
+
+        <!-- Entrar -->
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <div class="pestaña"><%=nombrePregunta%></div>
+        <div class="ContenedorInfomracion">
+            <ul>
+                <!--SI SELECCIONA UNA ESCRITA-->                
+                <%respuestas.forEach(function(respuesta){%>
+                    <%= respuesta %>
+                    <li>                            
+                        <form action="/preguntas/comprobarAdivinacion" method="POST">
+                            
+                        <input type="hidden" name="emailAmigo" value="<%=emailAmigo%>">
+                        <input type="hidden" name="idPregunta" value="<%=idPregunta%>">
+                        <input type="hidden" name="respuestaAmigo" value="<%=respuestaAmigo%>">
+                        <input type="hidden" name="respuestaMia" value="<%=respuesta%>">
+                        
+                        <input type="submit" value="seleccionar">
+                        </form>
+                    </li>                    
+                <% })%>                
+                
+            </ul>           
+        </div>
+        
+    </body>
+</html>
